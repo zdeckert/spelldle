@@ -41,6 +41,8 @@
 	function extract(item: SpellIndex) {
 		return item.name;
 	}
+
+	$inspect(dailySpell?.spell, responses[responses.length - 1]?.spell);
 </script>
 
 <h1>Spelldle</h1>
@@ -62,7 +64,7 @@
 <div class="grid grid-cols-16 gap-2">
 	{#if dailySpell?.isLoading}
 		<div class="col-span-16">
-			<p>Getting todays spell...</p>
+			<p>Incanting todays spell...</p>
 		</div>
 	{:else if dailySpell?.error}
 		<div class="col-span-16">
@@ -76,7 +78,7 @@
 		{#each responses as { isLoading, error, spell }}
 			{#if isLoading}
 				<div class="col-span-16">
-					<p>Getting todays spell...</p>
+					<p>Summoning your spell...</p>
 				</div>
 			{:else if error}
 				<div class="col-span-16">
@@ -141,9 +143,12 @@
 				<p class="col-span-1 text-center {getStrBG(d_duration, duration)}">{duration}</p>
 				<p class="col-span-1 text-center {getNumBG(d_level, level)}">
 					{level === 0 ? 'Cantrip' : level}
+					{d_level > level ? '⬆️' : d_level < level ? '⬇️' : ''}
 				</p>
-				<p class="col-span-1 text-center {getBoolBG(!!d_higherLevel, !!higherLevel)}">
-					{!!higherLevel}
+				<p
+					class="col-span-1 text-center {getBoolBG(!!d_higherLevel?.length, !!higherLevel?.length)}"
+				>
+					{String(!!higherLevel?.length)}
 				</p>
 				<p class="col-span-1 text-center {getStrBG(d_range, range)}">{range}</p>
 				<p class="col-span-1 text-center {getBoolBG(d_ritual, ritual)}">{ritual}</p>
