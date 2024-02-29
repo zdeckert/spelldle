@@ -11,10 +11,5 @@ export default {
 				'span-16': 'span 16 / span 16'
 			}
 		}
-	},
-	plugins: [require('daisyui')],
-	daisyui: {
-		// themes: ['retro', 'forest'],
-		themes: ['fantasy']
 	}
 };

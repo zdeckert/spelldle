@@ -2,9 +2,9 @@
 	import Typeahead from 'svelte-typeahead';
 	import { SPELL_INDEXES, CATEGORIES, SPELL_OBJ_FALLBACK } from '$lib/consts';
 	import type { SpellIndex, SpellResponse } from '$lib/types';
-	import useFetchSpell from '$lib/helpers/useFetchSpell.svelte';
+	import useFetchSpell from '$lib/utils/useFetchSpell.svelte';
 	import type { PageData } from './$types';
-	import { getAoeBG, getArrBG, getStrBG, getNumBG, getBoolBG } from '$lib/helpers/getBG';
+	import { getAoeBG, getArrBG, getStrBG, getNumBG, getBoolBG } from '$lib/utils/getBG';
 
 	let { data: loadData }: { data: PageData } = $props();
 	let { dailySpell } = loadData;
