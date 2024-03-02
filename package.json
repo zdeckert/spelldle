@@ -35,6 +35,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"bits-ui": "^0.18.6",
 		"svelte-search": "^2.0.2"
 	}
 }
